@@ -1,0 +1,104 @@
+# 已有三元组，直接设置三元组，最终deviceinfo文件示例如下，请确保文件时json格式
+{
+    "productKey": "xxx",
+    "deviceName": "xxx",
+    "productSecret": "xxx",
+    "deviceSecret": "xxx",
+    "registerType":"",
+    "subDevice": [
+      {
+          "productKey": "",
+          "deviceName": ""
+      },
+      {
+        "productKey": "",
+        "deviceName": ""
+      }
+    ]
+}
+
+# 只有pk dn ps，需要动态注册拿到三元组再进行建联（使用https进行动态注册），文件示例如下：
+## 前提：需要在物联网后台打开动态注册的开关，创建这个deviceName的设备，
+## 注意：动态注册成功，设备成功建联之后，再次动态注册云端不会再返回三元组信息，只返回已动态注册，所以首次动态注册之后需要保存三元组信息
+{
+    "productKey": "xxx",
+    "deviceName": "xxx",
+    "productSecret": "xxx",
+    "deviceSecret": "",
+    "registerType":"",
+    "subDevice": [
+      {
+          "productKey": "",
+          "deviceName": ""
+      },
+      {
+        "productKey": "",
+        "deviceName": ""
+      }
+    ]
+}
+
+# 只有pk dn ps，需要动态注册拿到三元组再进行建联（使用mqtt进行动态注册），文件示例如下：
+## 前提：需要在物联网后台打开动态注册的开关，无需预先在物联网后台创建指定deviceName的设备
+{
+    "productKey": "xxx",
+    "deviceName": "xxx",
+    "productSecret": "xxx",
+    "deviceSecret": "",
+    "registerType":"regnwl",
+    "subDevice": [
+      {
+          "productKey": "",
+          "deviceName": ""
+      },
+      {
+        "productKey": "",
+        "deviceName": ""
+      }
+    ]
+}
+
+# 作为网关使用，需要动态添加子设备，并代理子设备进行上线、数据收发操作，文件示例如下：
+## 前提：需要在物联网后台打开子设备动态注册的开关，预先在物联网后台创建指定deviceName的设备
+## 注意事项：如果子设备已被添加到其它网关下，则需要其它网关解除topo关系之后，才能动态注册成功，拿到子设备的三元组信息
+{
+    "productKey": "xxx",
+    "deviceName": "xxx",
+    "productSecret": "xxx",
+    "deviceSecret": "xxx",
+    "registerType":"",
+    "subDevice": [
+      {
+          "productKey": "xxx",
+          "deviceName": "xxx"
+      },
+      {
+        "productKey": "xx",
+        "deviceName": "xxx"
+      }
+    ]
+}
+
+# 作为网关使用（多网关模型），需要动态添加子设备，并代理子设备进行上线、数据收发操作，文件示例如下：
+## 前提：需要在物联网后台打开子设备动态注册的开关，预先在物联网后台创建指定deviceName的设备
+## 注意事项：如果子设备已被添加到其它网关下，仍然可以动态注册成功拿到子设备的三元组信息，子设备会更新到新网关下，安全性相对上面会弱
+{
+    "productKey": "xxx",
+    "deviceName": "xxx",
+    "productSecret": "xxx",
+    "deviceSecret": "xxx",
+    "registerType":"",
+    "subDevice": [
+      {
+          "productKey": "xxx",
+          "deviceName": "xxx",
+          "productSecret": "xxx"
+      },
+      {
+        "productKey": "xx",
+        "deviceName": "xxx",
+        "productSecret": "xxx"
+      }
+    ]
+}
+

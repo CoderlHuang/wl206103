@@ -1,0 +1,19 @@
+{
+    "productKey": "gr6pt8ESbuO",
+    "deviceName": "bracelet",
+    "productSecret": "",
+    "deviceSecret": "e08ee607216cb5c8e856120b54229fa9",
+    "registerType": "",
+    "subDevice": [
+      {
+          "productKey": "",
+          "productSecret": "",
+          "deviceName": ""
+      },
+      {
+          "productKey": "",
+          "productSecret": "",
+          "deviceName": ""
+      }
+    ]
+}
